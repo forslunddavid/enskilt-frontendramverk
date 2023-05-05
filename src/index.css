@@ -1,7 +1,7 @@
-@import url("https://fonts.google.com/specimen/Roboto+Mono?query=roboto+mono");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 
 :root {
-	font-family: "Roboto";
+	font-family: "Roboto Mono", monospace;
 }
 
 * {

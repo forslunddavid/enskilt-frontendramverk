@@ -1,4 +1,15 @@
 .menu {
+	display: flex;
+	justify-content: center;
+}
+
+.nav {
+	display: flex;
 	border: solid 2px rgb(16, 16, 16);
-	margin-left: 10em;
+	border-radius: 25px;
+	padding: 1.5em;
+	margin: 4em;
+	justify-content: space-around;
+	max-width: 520px;
+	min-width: 520px;
 }

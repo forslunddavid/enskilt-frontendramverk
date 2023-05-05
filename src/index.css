@@ -14,5 +14,5 @@
 body {
 	background-image: url("./src/assets/backgroundimage.svg");
 	overflow: visible;
-	min-height: 100vh;
+	min-height: 90vh;
 }

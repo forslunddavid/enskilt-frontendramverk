@@ -8,6 +8,7 @@ import AdminUsers from "./routes/AdminUsers.jsx"
 import ErrorPage from "./routes/ErrorPage.jsx"
 import ProductDetails from "./routes/ProductDetails.jsx"
 import Cart from "./routes/Cart.jsx"
+import AboutUs from "./routes/AboutUs.jsx"
 
 const router = createHashRouter([
 	{
@@ -32,6 +33,10 @@ const router = createHashRouter([
 			{
 				path: "cart",
 				element: <Cart />,
+			},
+			{
+				path: "aboutus",
+				element: <AboutUs />,
 			},
 			{
 				path: "admin",

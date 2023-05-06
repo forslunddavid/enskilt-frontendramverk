@@ -1,6 +1,8 @@
+import Card from "./card/Card"
+
 const Products = () => (
 	<div>
-		<p>PRODUCTSPAGE</p>
+		<Card />
 	</div>
 )
 

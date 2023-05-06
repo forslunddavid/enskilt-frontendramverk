@@ -4,6 +4,11 @@
 	font-family: "Roboto Mono", monospace;
 }
 
+#root {
+	min-height: 100%;
+	position: relative;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -13,6 +18,8 @@
 
 body {
 	background-image: url("./src/assets/backgroundimage.svg");
+	background-color: white;
 	overflow: visible;
-	min-height: 90vh;
+	min-height: 100vh;
+	padding-bottom: 10em;
 }

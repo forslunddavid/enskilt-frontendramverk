@@ -1,0 +1,22 @@
+.card {
+	border: solid black;
+	border-width: 3px 3px 15px 3px;
+	width: 20em;
+	height: 30em;
+	background-color: hotpink;
+	margin: 5em;
+	border-radius: 25px;
+}
+
+.product-picture {
+	background-color: aliceblue;
+	width: (20em-6px);
+	height: 20em;
+	padding: 3px;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+}
+
+.productlink {
+	width: 20em;
+}

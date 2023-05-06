@@ -5,12 +5,10 @@ import Footer from "./footer/Footer"
 const Root = () => {
 	return (
 		<>
-			<body>
-				<Header />
-				<main>
-					<Outlet />
-				</main>
-			</body>
+			<Header />
+			<main>
+				<Outlet />
+			</main>
 			<Footer />
 		</>
 	)

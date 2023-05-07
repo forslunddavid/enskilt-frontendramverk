@@ -1,20 +1,38 @@
 import Card from "./card/Card"
+import { url, shopId } from "../data/constants"
 import { useEffect, useState } from "react"
 
 const Products = () => {
-	const [products, setProducts] = useState([])
-
+	const [product, setProduct] = useState([])
 	useEffect(() => {
-		fetch("/api/products")
-			.then((res) => res.json())
-			.then((data) => setProducts(data))
+		async function getProducts() {
+			try {
+				const response = await fetch(
+					url + "?action=get-products&shopid=" + shopId
+				)
+				const data = await response.json()
+				setProduct(data)
+			} catch (error) {
+				console.error("failed to get items", error)
+			}
+		}
+		getProducts()
 	}, [])
 
 	return (
 		<div>
-			{products.map((product) => (
-				<Card product={product} key={product.id} />
-			))}
+			<ul className="">
+				{product.map((product) => (
+					<li key={product.id}>
+						<h4>Produkter</h4>
+						<p>{product.name}</p>
+						<p>{product.price}</p>
+						<p>{product.description}</p>
+						<img className="product-image" src={product.picture} />
+					</li>
+				))}
+			</ul>
+			<Card />
 		</div>
 	)
 }

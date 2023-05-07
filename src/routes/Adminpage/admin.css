@@ -1,0 +1,25 @@
+.add-products-section,
+.add-users-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.add-products-container,
+.add-users-container {
+	margin: 1em;
+}
+
+.add-products,
+.add-users {
+	padding: 1em;
+	margin: 1em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+}
+form {
+	margin-bottom: 1em;
+}

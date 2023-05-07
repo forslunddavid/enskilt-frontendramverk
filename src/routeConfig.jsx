@@ -2,13 +2,14 @@ import { createHashRouter } from "react-router-dom"
 import Root from "./routes/Root.jsx"
 import Start from "./routes/Start.jsx"
 import Products from "./routes/Products.jsx"
-import Admin from "./routes/Admin.jsx"
+import Admin from "./routes/Adminpage/Admin.jsx"
 import AdminProducts from "./routes/AdminProducts.jsx"
 import AdminUsers from "./routes/AdminUsers.jsx"
 import ErrorPage from "./routes/ErrorPage.jsx"
 import ProductDetails from "./routes/ProductDetails.jsx"
 import Cart from "./routes/Cart.jsx"
 import AboutUs from "./routes/AboutUs.jsx"
+import LoginModal from "./routes/adminloginmodal/adminloginmodal.jsx"
 
 const router = createHashRouter([
 	{
@@ -19,6 +20,10 @@ const router = createHashRouter([
 			{
 				path: "",
 				element: <Start />,
+			},
+			{
+				path: "adminlogin",
+				element: <LoginModal />,
 			},
 			{
 				path: "products",

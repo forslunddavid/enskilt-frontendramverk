@@ -3,15 +3,21 @@
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+	color: #101010;
 }
 
 .nav {
 	display: flex;
-	border: solid 2px rgb(16, 16, 16);
+	border: solid 2px #101010;
 	border-radius: 25px;
 	padding: 1.5em;
 	margin: 4em;
 	justify-content: space-around;
 	max-width: 520px;
 	min-width: 520px;
+	color: #101010;
+}
+
+.menuitem {
+	color: #101010;
 }

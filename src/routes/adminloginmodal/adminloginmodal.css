@@ -1,0 +1,38 @@
+.modal {
+	position: absolute;
+	background-color: #fdffd0;
+	border-radius: 15px;
+	padding: 1.5rem 3rem;
+	width: 30em;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, 50%);
+}
+
+.modal h1 {
+	margin-bottom: 0.5em;
+}
+
+.no-overflow {
+	overflow: hidden;
+}
+
+.login-input-container {
+	margin-bottom: 1.5em;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 4em;
+}
+
+.login-guide-text {
+	font-weight: bold;
+}
+
+.login-button {
+	border-radius: 0.5rem;
+	color: #101010;
+	border: solid #101010 1px;
+	background-color: #ffffff;
+	padding: 0.2em 0.4em;
+}

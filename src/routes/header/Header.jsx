@@ -8,9 +8,15 @@ const Header = () => (
 		<Search />
 		<header>
 			<nav className="nav">
-				<NavLink to="/">Home</NavLink>
-				<NavLink to="/Products">Products</NavLink>
-				<NavLink to="/AboutUs">About Us</NavLink>
+				<NavLink className="menuitem" to="/">
+					Home
+				</NavLink>
+				<NavLink className="menuitem" to="/Products">
+					Products
+				</NavLink>
+				<NavLink className="menuitem" to="/AboutUs">
+					About Us
+				</NavLink>
 			</nav>
 		</header>
 		<ShoppingCart />

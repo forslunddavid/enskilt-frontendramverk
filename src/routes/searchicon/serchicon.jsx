@@ -6,5 +6,6 @@ const Search = () => (
 		<img src={searchIcon} alt="Search Logo" />
 	</div>
 )
+//on click öppna inputfält
 
 export default Search

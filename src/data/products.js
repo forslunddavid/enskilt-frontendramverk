@@ -1,15 +1,8 @@
 import { shopId } from "../api-scripts/constants"
 
-export const data = [
+const data = [
 	{
-		name: "Water slide",
-		price: 49.99,
-		description: "Giant inflatable water slide for hours of summer fun.",
-		picture:
-			"https://www.thegreenhead.com/imgs/xl/aquaglide-summit-express-inflatable-water-slide-xl.jpg",
-		shopid: shopId,
-	},
-	{
+		action: "add-product",
 		name: "Beach ball",
 		price: 9.99,
 		description: "Classic beach ball for all your summer activities.",
@@ -18,6 +11,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Frisbee",
 		price: 7.99,
 		description:
@@ -27,6 +21,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Inflatable pool",
 		price: 39.99,
 		description:
@@ -36,6 +31,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Water balloons",
 		price: 5.99,
 		description:
@@ -45,6 +41,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Sandcastle kit",
 		price: 12.99,
 		description:
@@ -54,6 +51,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Kite",
 		price: 19.99,
 		description: "Easy-to-fly kite for beach or park adventures.",
@@ -61,6 +59,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Bubble wand",
 		price: 4.99,
 		description: "Create endless bubbles with this fun bubble wand.",
@@ -69,6 +68,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Water gun",
 		price: 14.99,
 		description: "Powerful water gun for epic water battles with friends.",
@@ -77,6 +77,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Surfboard",
 		price: 299.99,
 		description: "High-quality surfboard for riding the waves this summer.",
@@ -85,6 +86,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Paddleball set",
 		price: 29.99,
 		description: "Two-player paddleball set for beach or park fun.",
@@ -93,6 +95,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Roller skates",
 		price: 79.99,
 		description:
@@ -102,6 +105,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Pool Noodles",
 		price: 6.99,
 		description:
@@ -111,6 +115,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Giant Jenga",
 		price: 39.99,
 		description:
@@ -120,6 +125,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Inflatable flamingo",
 		price: 29.99,
 		description:
@@ -129,6 +135,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Squirt gun",
 		price: 9.99,
 		description:
@@ -138,6 +145,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Beach volleyball",
 		price: 19.99,
 		description:
@@ -147,6 +155,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Portable Hammock",
 		price: 79.99,
 		description:
@@ -156,6 +165,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Beach umbrella",
 		price: 39.99,
 		description:
@@ -165,6 +175,7 @@ export const data = [
 		shopid: shopId,
 	},
 	{
+		action: "add-product",
 		name: "Beach towel",
 		price: 24.99,
 		description:
@@ -174,3 +185,5 @@ export const data = [
 		shopid: shopId,
 	},
 ]
+
+export default data

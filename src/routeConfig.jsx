@@ -1,7 +1,7 @@
 import { createHashRouter } from "react-router-dom"
 import Root from "./routes/Root.jsx"
 import Start from "./routes/Start.jsx"
-import Products from "./routes/Products.jsx"
+import Products from "./routes/products/Products.jsx"
 import Admin from "./routes/Adminpage/Admin.jsx"
 import AdminProducts from "./routes/AdminProducts.jsx"
 import AdminUsers from "./routes/AdminUsers.jsx"

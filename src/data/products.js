@@ -3,6 +3,15 @@ import { shopId } from "../api-scripts/constants"
 const data = [
 	{
 		action: "add-product",
+		name: "Water slide",
+		price: 49.99,
+		description: "Giant inflatable water slide for hours of summer fun.",
+		picture:
+			"https://www.thegreenhead.com/imgs/xl/aquaglide-summit-express-inflatable-water-slide-xl.jpg",
+		shopid: shopId,
+	},
+	{
+		action: "add-product",
 		name: "Beach ball",
 		price: 9.99,
 		description: "Classic beach ball for all your summer activities.",

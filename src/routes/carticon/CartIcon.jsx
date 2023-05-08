@@ -3,9 +3,9 @@ import { Link } from "react-router-dom"
 import "./carticon.css"
 
 const ShoppingCart = () => (
-	<div className="carticon">
+	<div>
 		<Link to={`/cart`}>
-			<img src={cartIcon} alt="Cart Logo" />
+			<img className="carticon" src={cartIcon} alt="Cart Logo" />
 		</Link>
 	</div>
 )

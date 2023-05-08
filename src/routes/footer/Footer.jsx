@@ -3,12 +3,22 @@ import { NavLink } from "react-router-dom"
 
 const Footer = () => (
 	<div className="footer">
-		<NavLink to="/adminlogin">Admin</NavLink>
-		<NavLink to="/AboutUs">About Us</NavLink>
-		<p>
-			Address: 123 Main Street, Suite 456 City: Anytown, USA Zip Code:
-			12345 Phone Number: +1 (555) 123-4567 Email: info@example.com
-		</p>
+		<li className="contact">
+			<ul>Address: 123 Main Street,</ul>
+			<ul>Suite 456</ul>
+			<ul>City: Anytown, USA</ul>
+			<ul>Zip Code: 12345</ul>
+			<ul>Phone Number: +1 (555) 123-4567 </ul>
+			<ul>Email: info@example.com</ul>
+		</li>
+		<li className="footer-nav">
+			<ul>
+				<NavLink to="/adminlogin">Admin</NavLink>
+			</ul>
+			<ul>
+				<NavLink to="/AboutUs">About Us</NavLink>
+			</ul>
+		</li>
 	</div>
 )
 

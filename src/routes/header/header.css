@@ -1,3 +1,6 @@
+header {
+	margin: 4em;
+}
 .menu {
 	display: flex;
 	justify-content: space-between;
@@ -6,18 +9,51 @@
 	color: #101010;
 }
 
-.nav {
+.burger {
 	display: flex;
+	margin-top: 4em;
+	padding-top: 1.5em;
+}
+
+.nav {
+	display: none;
 	border: solid 2px #101010;
 	border-radius: 25px;
 	padding: 1.5em;
-	margin: 4em;
 	justify-content: space-around;
-	max-width: 520px;
-	min-width: 520px;
+	max-width: 280px;
 	color: #101010;
 }
 
 .menuitem {
 	color: #101010;
+}
+@media screen and (min-width: 920px) {
+	.menu {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		color: #101010;
+	}
+
+	.burger {
+		visibility: hidden;
+	}
+
+	.nav {
+		visibility: visible;
+		display: flex;
+		border: solid 2px #101010;
+		border-radius: 25px;
+		padding: 1.5em;
+		justify-content: space-around;
+		max-width: 520px;
+		min-width: 520px;
+		color: #101010;
+	}
+
+	.menuitem {
+		color: #101010;
+	}
 }

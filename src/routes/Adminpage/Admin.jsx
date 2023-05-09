@@ -37,12 +37,11 @@ function addProduct(e) {
 
 function addUser(e) {
 	e.preventDefault()
-	// prettier-ignore
 
 	const usersFormData = {
 		username: e.target.username.value,
 		password: e.target.password.value,
-		shopid:shopId,
+		shopid: shopId,
 	}
 
 	console.log(usersFormData)

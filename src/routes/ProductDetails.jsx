@@ -1,5 +1,5 @@
 const ProductDetails = () => {
-	const [product] = useContext(ProductContext)
+	const [product] = useRecoilState(productState)
 
 	return (
 		<div className="product-details">

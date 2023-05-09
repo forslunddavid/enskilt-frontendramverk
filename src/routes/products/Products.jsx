@@ -7,19 +7,6 @@ import Search from "../searchicon/serchicon"
 const Products = () => {
 	const [products, setProducts] = useState([])
 
-	async function deleteProduct(id) {
-		try {
-			const response = await fetch(
-				url + "?action=delete-product&id=" + id,
-				{
-					method: "POST",
-				}
-			)
-		} catch (err) {
-			console.log(err)
-		}
-	}
-
 	useEffect(() => {
 		async function getProducts() {
 			try {
@@ -41,7 +28,11 @@ const Products = () => {
 			<div>
 				<ul className="">
 					{products.map((product) => (
-						<Link to={`/products/${product.id}`} key={product.id}>
+						<Link
+							to={`/products/${product.id}`}
+							key={product.id}
+							product={product}
+						>
 							<li className="card">
 								<img
 									className="product-image"
@@ -51,15 +42,6 @@ const Products = () => {
 								<p>{product.name}</p>
 								<p>{product.price}$</p>
 								<p>{product.description}</p>
-								<button
-									type="button"
-									onClick={(e) => {
-										e.stopPropagation()
-										deleteProduct(product.id)
-									}}
-								>
-									X
-								</button>
 							</li>
 						</Link>
 					))}

@@ -29,11 +29,11 @@ const Burger = () => {
 							</ul>
 							<ul>
 								{" "}
-								<Link to="/about">About</Link>
+								<Link to="/products">Products</Link>
 							</ul>
 							<ul>
 								{" "}
-								<Link to="/contact">Contact</Link>
+								<Link to="/about">About</Link>
 							</ul>
 						</li>
 					}

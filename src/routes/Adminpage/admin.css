@@ -23,3 +23,25 @@
 form {
 	margin-bottom: 1em;
 }
+
+.card {
+	border: solid #101010;
+	border-width: 3px 3px 15px 3px;
+	width: 20em;
+	height: 30em;
+	background-color: #fdffd0;
+	margin: 5em;
+	border-radius: 25px;
+	color: #101010;
+	margin: 0 auto;
+}
+
+.product-picture {
+	background-color: aliceblue;
+	max-width: (20em-6px);
+	height: 20em;
+	padding: 3px;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	overflow: hidden;
+}

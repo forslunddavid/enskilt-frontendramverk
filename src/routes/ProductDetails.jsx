@@ -1,6 +1,4 @@
-const ProductDetails = () => {
-	const [product] = useContext(ProductContext)
-
+const ProductDetails = ({ product }) => {
 	return (
 		<div className="product-details">
 			<img src={product.picture} alt={product.name} />

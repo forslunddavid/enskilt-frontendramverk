@@ -19,7 +19,7 @@ a {
 
 .product-picture {
 	background-color: aliceblue;
-	max-width: (20em-6px);
+	width: (20em-6px);
 	height: 20em;
 	padding: 3px;
 	border-top-left-radius: 25px;

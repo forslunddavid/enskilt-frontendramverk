@@ -30,9 +30,22 @@ const router = createHashRouter([
 				element: <Products />,
 				children: [
 					{
-						path: "products/:id",
-						element: <ProductDetails />,
-					},
+          path: ":id",
+          element: <ProductDetails />,
+          render: ({ match }) => {
+            const productID = match.params.id;
+            const setProductState = useSetRecoilState(productState);
+
+            useEffect(() => {
+              async function getProduct() {
+                const response = await fetch(`/products/${productID}`);
+                const product = await response.json();
+                setProductState(product);
+              }
+              getProduct();
+            }, [productID]);
+
+            return <ProductDetails />
 				],
 			},
 			{

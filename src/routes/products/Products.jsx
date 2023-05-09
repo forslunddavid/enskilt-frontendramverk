@@ -1,11 +1,14 @@
 import { url, shopId } from "../../data/constants"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import searchIcon from "../../assets/SearchOutline.svg"
 import "./products.css"
-import Search from "../searchicon/serchicon"
 
 const Products = () => {
 	const [products, setProducts] = useState([])
+	const [search, setSearch] = useState("")
+	const [filteredProducts, setFilteredProducts] = useState(products)
+	const [searchShown, setSearchShown] = useState(false)
 
 	useEffect(() => {
 		async function getProducts() {
@@ -22,12 +25,35 @@ const Products = () => {
 		getProducts()
 	}, [])
 
+	const handleSearch = (e) => {
+		const search = e.target.value
+		setSearch(search)
+
+		if (search) {
+			const filtered = products.filter((p) =>
+				p.name.toLowerCase().includes(search.toLowerCase())
+			)
+			setFilteredProducts(filtered)
+		} else {
+			setFilteredProducts(products)
+		}
+	}
+
 	return (
 		<>
-			<Search />
+			<div className="searchicon">
+				{searchShown && (
+					<input type="text" value={search} onChange={handleSearch} />
+				)}
+				<img
+					src={searchIcon}
+					alt="Search Logo"
+					onClick={() => setSearchShown(!searchShown)}
+				/>
+			</div>
 			<div>
 				<ul className="">
-					{products.map((product) => (
+					{filteredProducts.map((product) => (
 						<Link
 							to={`/products/${product.id}`}
 							key={product.id}
@@ -41,7 +67,9 @@ const Products = () => {
 								/>
 								<p>{product.name}</p>
 								<p>{product.price}$</p>
-								<p>{product.description}</p>
+								<p className="product-description">
+									{product.description}
+								</p>
 							</li>
 						</Link>
 					))}
@@ -52,3 +80,4 @@ const Products = () => {
 }
 
 export default Products
+// export { products }

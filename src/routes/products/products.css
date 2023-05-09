@@ -27,21 +27,39 @@ a {
 	overflow: hidden;
 }
 
-.productlink {
-	width: 20em;
-}
 .product-image {
-	/* max-width: (20em-6px); */
-	max-width: 100%;
+	width: 100%;
+	object-fit: cover;
 	height: 20em;
 	border-top-left-radius: 25px;
 	border-top-right-radius: 25px;
+}
+.productlink {
+	width: 20em;
 }
 
 ul {
 	display: grid;
 	grid-template-columns: 1fr;
 	align-items: center;
+}
+
+.product-description {
+	overflow: hidden;
+	max-height: 64px;
+}
+
+.search-container {
+	position: relative;
+	width: 20em;
+	margin: 0 auto;
+}
+
+.search-container input {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	z-index: 1;
 }
 
 @media (min-width: 960px) {

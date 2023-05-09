@@ -50,8 +50,9 @@ const Products = () => {
 					alt="Search Logo"
 					onClick={() => setSearchShown(!searchShown)}
 				/>
-			</div>
+			</div>{" "}
 			<div>
+				{" "}
 				<ul className="">
 					{filteredProducts.map((product) => (
 						<Link
@@ -66,14 +67,14 @@ const Products = () => {
 									alt={product.name}
 								/>
 								<p>{product.name}</p>
-								<p>{product.price}$</p>
+								<p>{product.price}$</p>{" "}
 								<p className="product-description">
 									{product.description}
-								</p>
-							</li>
+								</p>{" "}
+							</li>{" "}
 						</Link>
 					))}
-				</ul>
+				</ul>{" "}
 			</div>
 		</>
 	)

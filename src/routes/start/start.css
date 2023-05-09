@@ -1,0 +1,12 @@
+.hero-image-container {
+	max-width: 80vw;
+	margin: 0 auto;
+}
+
+.hero-image {
+	width: 100%;
+}
+
+.hero-text {
+	margin: 1em;
+}

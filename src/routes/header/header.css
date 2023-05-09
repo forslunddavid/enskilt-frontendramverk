@@ -28,6 +28,11 @@ header {
 .menuitem {
 	color: #101010;
 }
+
+.shop-name {
+	text-align: center;
+	margin-top: 1em;
+}
 @media screen and (min-width: 920px) {
 	.menu {
 		display: flex;

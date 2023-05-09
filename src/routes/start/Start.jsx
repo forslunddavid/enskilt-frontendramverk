@@ -5,8 +5,8 @@ const Start = () => (
 		<div className="hero-image-container">
 			<p className="hero-text">
 				Welcome to Summer Frenzy, your go-to destination for all things
-				summer fun! We're a family-owned business with a passion for
-				providing the best toys and accessories to make your summer
+				summer fun! We&apos;re a family-owned business with a passion
+				for providing the best toys and accessories to make your summer
 				unforgettable.
 			</p>
 			<img

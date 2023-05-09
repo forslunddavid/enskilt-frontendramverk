@@ -29,10 +29,20 @@
 	font-weight: bold;
 }
 
-.login-button {
+.login-button,
+.cancel-button {
 	border-radius: 0.5rem;
 	color: #101010;
 	border: solid #101010 1px;
 	background-color: #ffffff;
 	padding: 0.2em 0.4em;
+}
+
+.cancel-button {
+	margin-left: 1em;
+}
+
+.product-description {
+	overflow: hidden;
+	max-height: 64px;
 }

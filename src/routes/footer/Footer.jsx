@@ -1,25 +1,35 @@
 import "./footer.css"
 import { NavLink } from "react-router-dom"
+import { useState } from "react"
+// import LoginModal from "./LoginModal"
 
-const Footer = () => (
-	<div className="footer">
-		<li className="contact">
-			<ul>Address: 123 Main Street,</ul>
-			<ul>Suite 456</ul>
-			<ul>City: Anytown, USA</ul>
-			<ul>Zip Code: 12345</ul>
-			<ul>Phone Number: +1 (555) 123-4567 </ul>
-			<ul>Email: info@example.com</ul>
-		</li>
-		<li className="footer-nav">
-			<ul>
-				<NavLink to="/adminlogin">Admin</NavLink>
-			</ul>
-			<ul>
-				<NavLink to="/AboutUs">About Us</NavLink>
-			</ul>
-		</li>
-	</div>
-)
+const Footer = () => {
+	const [showModal, setShowModal] = useState(false)
+
+	const toggleModal = () => {
+		setShowModal(true)
+	}
+
+	return (
+		<div className="footer">
+			<li className="contact">
+				<ul>Address: 123 Main Street,</ul>
+				<ul>Suite 456</ul>
+				<ul>City: Anytown, USA</ul>
+				<ul>Zip Code: 12345</ul>
+				<ul>Phone Number: +1 (555) 123-4567 </ul>
+				<ul>Email: info@example.com</ul>
+			</li>
+			<li className="footer-nav">
+				<ul>
+					<NavLink onClick={toggleModal}>Admin</NavLink>{" "}
+				</ul>
+				<ul>
+					<NavLink to="/AboutUs">About Us</NavLink>
+				</ul>
+			</li>
+		</div>
+	)
+}
 
 export default Footer

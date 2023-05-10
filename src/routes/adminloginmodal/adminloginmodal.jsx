@@ -7,9 +7,13 @@ const LoginModal = () => {
 	const [username, setUsername] = useState("")
 	const [password, setPassword] = useState("")
 	const [errors, setErrors] = useState({})
+	const [showModal, setShowModal] = useState(true)
+
+	const hideModal = () => {
+		setShowModal(false)
+	}
 
 	const { setLoggedIn, setUser } = useContext(AuthContext)
-
 	const handleLogin = async (e) => {
 		e.preventDefault()
 		console.log("handleLogin1")
@@ -55,40 +59,58 @@ const LoginModal = () => {
 	}
 
 	return (
-		<section className="overlay hidden">
-			<section className="modal">
-				<h1>Log In</h1>
-				<form onSubmit={handleLogin}>
-					<div className="login-input-container">
-						<legend className="login-guide-text">Username</legend>
-						<input
-							type="text"
-							placeholder="Name"
-							onChange={(e) => setUsername(e.target.value)}
-						/>
-					</div>
-					<div className="login-input-container">
-						<legend className="login-guide-text">Password</legend>
-						<input
-							type="password"
-							placeholder="Minimum 5 tecken"
-							onChange={(e) => setPassword(e.target.value)}
-						/>
-						<span className="display-error">{errors.username}</span>
-					</div>
-					<button
-						className="login-button"
-						type="submit"
-						disabled={Object.keys(errors).length > 0}
-					>
-						Logga in
-					</button>
-					<button to="/" className="cancel-button">
-						Avbryt
-					</button>
-				</form>
-			</section>
-		</section>
+		<>
+			{showModal && (
+				<section className="overlay">
+					<section className="modal">
+						<h1>Log In</h1>
+						<form onSubmit={handleLogin}>
+							<div className="login-input-container">
+								<legend className="login-guide-text">
+									Username
+								</legend>
+								<input
+									type="text"
+									placeholder="Name"
+									onChange={(e) =>
+										setUsername(e.target.value)
+									}
+								/>
+							</div>
+							<div className="login-input-container">
+								<legend className="login-guide-text">
+									Password
+								</legend>
+								<input
+									type="password"
+									placeholder="Minimum 5 tecken"
+									onChange={(e) =>
+										setPassword(e.target.value)
+									}
+								/>
+								<span className="display-error">
+									{errors.username}
+								</span>
+							</div>
+							<button
+								className="login-button"
+								type="submit"
+								disabled={Object.keys(errors).length > 0}
+							>
+								Logga in
+							</button>
+							<button
+								to="/"
+								className="cancel-button"
+								onClick={hideModal}
+							>
+								Avbryt
+							</button>
+						</form>
+					</section>
+				</section>
+			)}
+		</>
 	)
 }
 

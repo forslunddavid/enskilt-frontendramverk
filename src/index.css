@@ -25,3 +25,12 @@ body {
 	padding-bottom: 15em;
 	overflow-x: hidden;
 }
+
+.error {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: auto;
+	min-height: 100vh;
+}

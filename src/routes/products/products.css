@@ -17,6 +17,29 @@ a {
 	margin: 0 auto;
 }
 
+.card p,
+.detail-card p {
+	padding: 0.5em 0.5em 0em 0.5em;
+}
+
+.add-to-cart-button {
+	margin: 0.5em 0.5em 0em 0em;
+}
+
+.detail-card {
+	border: solid #101010;
+	border-width: 3px 3px 15px 3px;
+	width: 20em;
+	height: 30em;
+	background-color: #fdffd0;
+	margin: 3em;
+	border-radius: 25px;
+	color: #101010;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
 .product-picture {
 	background-color: aliceblue;
 	max-width: (20em-6px);
@@ -61,6 +84,11 @@ ul {
 
 .searchicon > *:last-child {
 	margin-right: 0;
+}
+
+.add-to-cart {
+	display: flex;
+	justify-content: space-between;
 }
 
 @media (min-width: 960px) {

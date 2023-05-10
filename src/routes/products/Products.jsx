@@ -3,13 +3,16 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import searchIcon from "../../assets/SearchOutline.svg"
 import "./products.css"
+import productAtom from "../state/productAtom.js"
+import { useRecoilState } from "recoil"
 
 const Products = () => {
-	const [products, setProducts] = useState([])
+	const [products, setProducts] = useRecoilState(productAtom)
+	// const [products, setProducts] = useState
 	const [search, setSearch] = useState("")
 	const [filteredProducts, setFilteredProducts] = useState(products)
 	const [searchShown, setSearchShown] = useState(false)
-
+	console.log("products: ", products, filteredProducts)
 	// This effect updates the filtered products based on all products whenever products state is updated
 	useEffect(() => {
 		setFilteredProducts(products)

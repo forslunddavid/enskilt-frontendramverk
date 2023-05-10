@@ -12,6 +12,7 @@ const LoginModal = () => {
 
 	const handleLogin = async (e) => {
 		e.preventDefault()
+		console.log("handleLogin1")
 
 		const valid = validateForm()
 		if (valid) {
@@ -31,10 +32,11 @@ const LoginModal = () => {
 			} else {
 				setErrors({ general: data.message })
 			}
-		}
+		} else console.log("admin log modal not valid")
 	}
 
 	const validateForm = () => {
+		console.log("validateForm1")
 		let valid = true
 		const errors = {}
 

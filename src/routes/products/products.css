@@ -11,7 +11,7 @@ a {
 	width: 20em;
 	height: 30em;
 	background-color: #fdffd0;
-	margin: 5em;
+	margin: 3em;
 	border-radius: 25px;
 	color: #101010;
 	margin: 0 auto;
@@ -49,17 +49,18 @@ ul {
 	max-height: 64px;
 }
 
-.search-container {
-	position: relative;
+.searchicon {
+	display: flex;
 	width: 20em;
 	margin: 0 auto;
 }
 
-.search-container input {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	z-index: 1;
+.searchicon > * {
+	margin: 0.5rem;
+}
+
+.searchicon > *:last-child {
+	margin-right: 0;
 }
 
 @media (min-width: 960px) {

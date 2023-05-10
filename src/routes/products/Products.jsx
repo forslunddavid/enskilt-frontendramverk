@@ -10,6 +10,12 @@ const Products = () => {
 	const [filteredProducts, setFilteredProducts] = useState(products)
 	const [searchShown, setSearchShown] = useState(false)
 
+	// This effect updates the filtered products based on all products whenever products state is updated
+	useEffect(() => {
+		setFilteredProducts(products)
+	}, [products])
+
+	// This effect fetches the products from the server and updates the products state when component mounts
 	useEffect(() => {
 		async function getProducts() {
 			try {
@@ -25,6 +31,7 @@ const Products = () => {
 		getProducts()
 	}, [])
 
+	// This function updates the search query and filtered products based on the search query
 	const handleSearch = (e) => {
 		const search = e.target.value
 		setSearch(search)
@@ -38,6 +45,7 @@ const Products = () => {
 		}
 	}
 
+	// Render the Products component
 	return (
 		<>
 			<div className="searchicon">
@@ -52,30 +60,26 @@ const Products = () => {
 			</div>
 			<div>
 				<ul className="">
-					{filteredProducts.map(
-						(
-							product // Map over filteredProducts
-						) => (
-							<Link
-								to={`/products/${product.id}`}
-								key={product.id}
-								product={product}
-							>
-								<li className="card">
-									<img
-										className="product-image"
-										src={product.picture}
-										alt={product.name}
-									/>
-									<p>{product.name}</p>
-									<p>{product.price}$</p>{" "}
-									<p className="product-description">
-										{product.description}
-									</p>{" "}
-								</li>{" "}
-							</Link>
-						)
-					)}
+					{filteredProducts.map((product) => (
+						<Link
+							to={`/products/${product.id}`}
+							key={product.id}
+							product={product}
+						>
+							<li className="card">
+								<img
+									className="product-image"
+									src={product.picture}
+									alt={product.name}
+								/>
+								<p>{product.name}</p>
+								<p>{product.price}$</p>{" "}
+								<p className="product-description">
+									{product.description}
+								</p>{" "}
+							</li>{" "}
+						</Link>
+					))}
 				</ul>{" "}
 			</div>
 		</>

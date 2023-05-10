@@ -21,3 +21,7 @@
 .productlink {
 	width: 20em;
 }
+
+a {
+	max-width: 20em;
+}

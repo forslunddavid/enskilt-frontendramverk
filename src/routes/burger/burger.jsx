@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import "./burger.css"
 
 const Burger = () => {
+	// State to manage whether or not to show the menu
 	const [showMenu, setShowMenu] = useState(false)
 
 	const toggleMenu = () => {

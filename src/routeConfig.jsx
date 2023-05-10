@@ -58,8 +58,6 @@ const router = createHashRouter([
 				],
 			},
 		],
-
-		// Används om URL inte matchar någon tidigare
 		errorElement: <ErrorPage />,
 	},
 ])

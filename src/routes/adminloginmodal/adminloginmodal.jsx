@@ -1,6 +1,5 @@
 import "./adminloginmodal.css"
 import { url, shopId } from "../../data/constants"
-// import { Link } from "react-router-dom"
 import { useState, useContext } from "react"
 import { AuthContext } from "../authContext"
 
@@ -16,11 +15,14 @@ const LoginModal = () => {
 
 		const valid = validateForm()
 		if (valid) {
-			const response = await fetch(url + "?action=login-user" + shopId, {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ username, password }),
-			})
+			const response = await fetch(
+				url + "?action=get-users&shopid=" + shopId,
+				{
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ username, password }),
+				}
+			)
 
 			const data = await response.json()
 			if (data.success) {

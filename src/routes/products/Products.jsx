@@ -17,7 +17,7 @@ const Products = () => {
 					url + "?action=get-products&shopid=" + shopId
 				)
 				const data = await response.json()
-				setProducts(data)
+				setProducts(data) // Update products state
 			} catch (error) {
 				console.error("failed to get items", error)
 			}
@@ -28,7 +28,6 @@ const Products = () => {
 	const handleSearch = (e) => {
 		const search = e.target.value
 		setSearch(search)
-
 		if (search) {
 			const filtered = products.filter((p) =>
 				p.name.toLowerCase().includes(search.toLowerCase())
@@ -50,30 +49,33 @@ const Products = () => {
 					alt="Search Logo"
 					onClick={() => setSearchShown(!searchShown)}
 				/>
-			</div>{" "}
+			</div>
 			<div>
-				{" "}
 				<ul className="">
-					{filteredProducts.map((product) => (
-						<Link
-							to={`/products/${product.id}`}
-							key={product.id}
-							product={product}
-						>
-							<li className="card">
-								<img
-									className="product-image"
-									src={product.picture}
-									alt={product.name}
-								/>
-								<p>{product.name}</p>
-								<p>{product.price}$</p>{" "}
-								<p className="product-description">
-									{product.description}
-								</p>{" "}
-							</li>{" "}
-						</Link>
-					))}
+					{filteredProducts.map(
+						(
+							product // Map over filteredProducts
+						) => (
+							<Link
+								to={`/products/${product.id}`}
+								key={product.id}
+								product={product}
+							>
+								<li className="card">
+									<img
+										className="product-image"
+										src={product.picture}
+										alt={product.name}
+									/>
+									<p>{product.name}</p>
+									<p>{product.price}$</p>{" "}
+									<p className="product-description">
+										{product.description}
+									</p>{" "}
+								</li>{" "}
+							</Link>
+						)
+					)}
 				</ul>{" "}
 			</div>
 		</>
@@ -81,4 +83,3 @@ const Products = () => {
 }
 
 export default Products
-// export { products }

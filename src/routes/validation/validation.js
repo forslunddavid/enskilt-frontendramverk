@@ -1,17 +1,17 @@
 const validCharLetter = "abcdefghijklmnopqrstuvwxyzåäö "
 const validCharLetterNumber = "abcdefghijklmnopqrstuvwxyzåäö1234567890"
-const validCharComma = "abcdefghijklmnopqrstuvwxyzåäö1234567890, "
-const validPhone = "1234567890"
+const validCharComma = "abcdefghijklmnopqrstuvwxyzåäö1234567890, ."
+const validNumber = "1234567890."
 
-function isValid(validName) {
-	for (let i = 0; i < validName.length; i++) {
-		let character = validName.charAt(i).toLowerCase()
-		if (!validCharLetter.includes(character)) {
-			return [false, "Vänligen använd endast bokstäver."]
+function isValidUserName(validUserName) {
+	for (let i = 0; i < validUserName.length; i++) {
+		let characterName = validUserName.charAT(i).toLowerCase()
+		if (!validCharLetter.includes(characterName)) {
+			return [false, "Only letters and spaces are allowed"]
 		}
 	}
-	if (validName.length < 2) {
-		return [false, "Behöver minst vara 2 tecken."]
+	if (validUserName.length < 2) {
+		return [false, "Minumum 2 characters required"]
 	}
 	return [true, ""]
 }
@@ -20,101 +20,105 @@ function isValidPassword(userPassword) {
 	for (let x = 0; x < userPassword.length; x++) {
 		let characterPassword = userPassword.charAt(x).toLowerCase()
 		if (!validCharLetterNumber.includes(characterPassword)) {
-			return [false, "Vänligen använd endast bokstäver och siffror."]
+			return [false, "Only letters and numbers are allowed"]
 		}
 	}
-	if (userPassword.length < 4) {
-		return [false, "Behöver minst vara 4 tecken."]
-	}
-	if (userPassword != "mums") {
-		return [false, "Fel lösenord. Försök igen."]
+	if (userPassword.length < 5) {
+		return [false, "minumum 5 characters required"]
 	} else {
 		return [true, ""]
 	}
 }
 
-function isValidIngredient(addIngredient) {
-	for (let i = 0; i < addIngredient.length; i++) {
-		let character = addIngredient.charAt(i).toLowerCase()
-		if (!validCharComma.includes(character)) {
-			return [false, "Endast bokstäver, siffror eller komma."]
+function isValidProductName(productName) {
+	for (let i = 0; i < productName.length; i++) {
+		let characterProductName = productName.charAt(i).toLowerCase()
+		if (!validCharComma.includes(characterProductName)) {
+			return [
+				false,
+				"Only letters,numbers, commas, periods and spaces are allowed",
+			]
 		}
 	}
-	let ingredientInput = addIngredient
-	let regex = /[^,]\s/
-	let hasIncorrectSpace = regex.test(ingredientInput)
-	if (hasIncorrectSpace == true) {
-		return [false, "Använd komma innan mellanrum."]
-	}
-	if (addIngredient.length == 0) {
-		return [false, "Saknar ingredienser."]
+	if (productName.length == 0) {
+		return [false, "Must enter a name"]
 	}
 	return [true, ""]
 }
 
-function isValidPrice(addPrice) {
-	for (let x = 0; x < addPrice.length; x++) {
-		let characterPassword = addPrice.charAt(x).toLowerCase()
-		if (!validCharLetterNumber.includes(characterPassword)) {
-			return [false, "Vänligen använd endast bokstäver och siffror."]
+function isValidDescription(description) {
+	for (let i = 0; i < description.length; i++) {
+		let characterDescription = description.charAt(i).toLowerCase()
+		if (!validCharComma.includes(characterDescription)) {
+			return [
+				false,
+				"Only letters,numbers, commas, periods and spaces are allowed",
+			]
 		}
 	}
-	if (addPrice.length < 4) {
-		return [false, "Behöver minst vara 4 tecken"]
-	}
-	let endsWithKr = addPrice.toLowerCase().endsWith("kr")
-	if (!endsWithKr) {
-		return [false, "Måste avsluta med kr."]
+	if (description.length < 10) {
+		return [false, "Description must be at least 10 characters"]
 	}
 	return [true, ""]
 }
 
-function isValidUrl(addImg) {
+function isValidPrice(price) {
+	for (let x = 0; x < price.length; x++) {
+		let characterPrice = price.charCodeAt(x)
+		if (!validNumber.includes(characterPrice)) {
+			return [false, "Price can only contain numbers and periods"]
+		}
+	}
+	if (price.length < 4) {
+		return [false, "Price must be at least 4 characters"]
+	}
+	return [true, ""]
+}
+
+function isValidImage(addImg) {
 	const whiteSpaceCheck = /\s/
 	if (whiteSpaceCheck.test(addImg)) {
 		return [false, "Godkänner ej mellanrum"]
 	}
-	if (addImg.substring(0, 22) != "src/components/images/") {
-		return [false, "Vänligen börja url-strängen med src/components/images/"]
+	if (addImg.substring(0, 22) != "https://") {
+		return [false, "Must begin with https://"]
 	}
 	return [true, ""]
 }
-
-function isValidPhone(phoneNumber) {
-	const whiteSpaceCheck = /\s/
-	if (whiteSpaceCheck.test(phoneNumber)) {
-		return [false, "Godkänner ej mellanrum"]
-	}
-	for (
-		let validCountPhone = 0;
-		validCountPhone < phoneNumber.length;
-		validCountPhone++
-	) {
-		let validPhoneNumber = phoneNumber.charAt(validCountPhone)
-		if (!validPhone.includes(validPhoneNumber)) {
-			return [false, "Vänligen använd endast siffror."]
+function isValidAddUser(addUser) {
+	for (let i = 0; i < addUser.length; i++) {
+		let characterUser = addUser.charAt(i).toLowerCase()
+		if (!validCharLetter.includes(characterUser)) {
+			return [false, "Only letters are allowed"]
 		}
 	}
-	if (phoneNumber.length < 10) {
-		return [false, "Vänligen skriv in minst 10 tecken"]
+	if (addUser.length < 3) {
+		return [false, "Minimum 3 characters"]
 	}
 	return [true, ""]
 }
 
-function isValidMail(mail) {
-	const validMailCharacter = /^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/
-	if (!validMailCharacter.test(mail)) {
-		return [false, "Ej godkänt format"]
+function isValidAddPassword(addPassword) {
+	for (let x = 0; x < addPassword.length; x++) {
+		let characterAddPassword = addPassword.charAt(x).toLowerCase()
+		if (!validCharLetterNumber.includes(characterAddPassword)) {
+			return [false, "Only letters and numbers are allowed"]
+		}
 	}
-	return [true, ""]
+	if (addPassword.length < 5) {
+		return [false, "minumum 5 characters required"]
+	} else {
+		return [true, ""]
+	}
 }
 
 export {
-	isValid,
+	isValidUserName,
 	isValidPassword,
-	isValidIngredient,
+	isValidProductName,
+	isValidDescription,
 	isValidPrice,
-	isValidUrl,
-	isValidPhone,
-	isValidMail,
+	isValidImage,
+	isValidAddUser,
+	isValidAddPassword,
 }

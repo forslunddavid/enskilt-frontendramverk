@@ -6,6 +6,7 @@ import {
 	isValidPrice,
 	isValidImage,
 } from "../validation/validation"
+
 function addProduct(e) {
 	console.log(e.target)
 	if (e.target.name) {

@@ -45,3 +45,12 @@ form {
 	border-top-right-radius: 25px;
 	overflow: hidden;
 }
+
+input {
+	margin-bottom: 2em;
+}
+
+.logout-button {
+	display: flex;
+	margin: 0 auto;
+}

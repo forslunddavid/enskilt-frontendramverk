@@ -1,6 +1,11 @@
 import { url, shopId } from "../../data/constants"
 import "./admin.css"
-
+import {
+	isValidProductName,
+	isValidDescription,
+	isValidPrice,
+	isValidImage,
+} from "../validation/validation"
 function addProduct(e) {
 	console.log(e.target)
 	if (e.target.name) {
@@ -13,7 +18,7 @@ function addProduct(e) {
 		name: e.target.name.value,
 		price: Number(e.target.price.value),
 		description: e.target.description.value,
-		picture: e.target.image.value,
+		picture: e.target.picture.value,
 		action: "add-product",
 		shopid: shopId,
 	}

@@ -1,20 +1,15 @@
 li {
 	list-style: none;
+	justify-self: center;
 }
 
 a {
-	margin-bottom: 2em;
+	/* margin-bottom: 2em; */
 }
-.card {
-	border: solid #101010;
-	border-width: 3px 3px 15px 3px;
+.card-link {
+	display: grid;
 	width: 20em;
-	height: 30em;
-	background-color: #fdffd0;
-	margin: 3em;
-	border-radius: 25px;
-	color: #101010;
-	margin: 0 auto;
+	justify-self: center;
 }
 
 .card p,
@@ -76,7 +71,12 @@ ul {
 	display: flex;
 	width: 20em;
 	margin: 0 auto;
+	margin-bottom: 2em;
 	justify-self: center;
+}
+
+.searchicon input {
+	width: 18.5em;
 }
 
 .searchicon > * {

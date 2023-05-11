@@ -28,19 +28,4 @@ ul {
 		justify-content: space-between;
 		grid-template-columns: auto auto;
 	}
-	/* .footer-nav {
-		display: flex;
-		flex-direction: column;
-
-		margin: 0;
-		padding: 0;
-	}
-
-	.contact {
-		display: flex;
-		flex-direction: column;
-
-		margin: 0;
-		padding: 0;
-	} */
 }

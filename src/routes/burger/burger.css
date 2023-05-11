@@ -3,24 +3,17 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	background: #fff;
 	z-index: 10;
-	transform: translateX(-100%);
-	transition: transform 0.5s ease-in-out;
 }
 
 .burger-menu li {
 	display: flex;
 	flex-direction: column;
-	justify-content: center; /* Center horizontally */
+	justify-content: center;
 	align-items: center;
 	height: 100%;
-}
-
-.burger-menu.active {
-	transform: translateX(0%);
-	transition: transform 0.5s ease-in-out;
 }
 
 .burger {
@@ -35,6 +28,7 @@
 .crossicon {
 	margin-left: 4em;
 }
+
 .burger-image {
 	padding-top: 1.5em;
 }
@@ -43,12 +37,13 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 100%;
+	width: 24px;
+	height: 24px;
 }
 
-.burger span.burger-icon {
-	/* burger icon styling */
+.crossicon {
+	width: 24px;
+	height: 24px;
 }
 
 .burger span.cross-icon {

@@ -2,6 +2,7 @@ import { useRecoilState } from "recoil"
 import cartItems from "../state/cartItems.js"
 // import { useParams } from "react-router-dom"
 import { useState } from "react"
+import "./cart.css"
 
 const Cart = () => {
 	// const { id } = useParams()
@@ -38,26 +39,36 @@ const Cart = () => {
 	}
 
 	return (
-		<div>
+		<section>
 			<div>
-				{cart.map((item) => (
-					<div key={item.id}>
-						{/* <img src={item.picture} alt={item.name} /> */}
-						<p>{item.name}</p>
-						<p>{item.price}$</p>
-						<input
-							type="number"
-							value={item.quantity ? item.quantity : "1"}
-							onChange={(e) => handleQuantity(e, item)}
-						/>
-						<button onClick={() => handleDelete(item)}>
-							Delete
-						</button>
-					</div>
-				))}
+				{cart.length > 0 ? (
+					<section className="cart-container">
+						{cart.map((item) => (
+							<div className="cart-item" key={item.id}>
+								<p>{item.name}</p>
+								<p>{item.price}$</p>
+								<input
+									className="item-quantity"
+									type="number"
+									value={item.quantity ? item.quantity : "1"}
+									onChange={(e) => handleQuantity(e, item)}
+								/>
+								<button onClick={() => handleDelete(item)}>
+									Delete
+								</button>
+							</div>
+						))}
+					</section>
+				) : (
+					<p className="cart-message">The cart is Empty</p>
+				)}
+				{cart.length > 0 && (
+					<p className="cart-message">
+						Total Price: {totPrice.toFixed(2)}$
+					</p>
+				)}{" "}
 			</div>
-			<p>Total Price: {totPrice}$</p>
-		</div>
+		</section>
 	)
 }
 

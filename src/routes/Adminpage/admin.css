@@ -30,10 +30,10 @@ form {
 	width: 20em;
 	height: 30em;
 	background-color: #fdffd0;
-	margin: 5em;
 	border-radius: 25px;
 	color: #101010;
-	margin: 0 auto;
+	justify-self: center;
+	margin-bottom: 2em;
 }
 
 .product-picture {

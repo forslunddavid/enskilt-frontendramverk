@@ -1,0 +1,29 @@
+.cart {
+	display: flex;
+	flex-direction: column;
+}
+
+.cart-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.cart-item {
+	margin-bottom: 2em;
+}
+
+.cart div {
+	justify-self: center;
+}
+
+.item-quantity {
+	width: 3em;
+}
+
+.cart-message {
+	justify-content: center;
+	display: flex;
+	text-align: center;
+}

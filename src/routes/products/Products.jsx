@@ -8,10 +8,9 @@ import { useRecoilState } from "recoil"
 
 const Products = () => {
 	const [products, setProducts] = useRecoilState(productAtom)
-	// const [products, setProducts] = useState
 	const [search, setSearch] = useState("")
 	const [filteredProducts, setFilteredProducts] = useState(products)
-	const [searchShown, setSearchShown] = useState(false)
+
 	console.log("products: ", products, filteredProducts)
 	// This effect updates the filtered products based on all products whenever products state is updated
 	useEffect(() => {
@@ -48,23 +47,22 @@ const Products = () => {
 		}
 	}
 
-	// Render the Products component
 	return (
 		<>
 			<div className="searchicon">
-				<img
-					src={searchIcon}
-					alt="Search Logo"
-					onClick={() => setSearchShown(!searchShown)}
+				<img src={searchIcon} alt="Search Logo" />
+				<input
+					placeholder="Search"
+					type="text"
+					value={search}
+					onChange={handleSearch}
 				/>
-				{searchShown && (
-					<input type="text" value={search} onChange={handleSearch} />
-				)}
 			</div>
 			<div>
 				<ul className="">
 					{filteredProducts.map((product) => (
 						<Link
+							className="card-link"
 							to={`/products/${product.id}`}
 							key={product.id}
 							product={product}

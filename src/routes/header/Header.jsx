@@ -8,7 +8,7 @@ const Header = () => (
 		<h1 className="shop-name">SummerFrenzy</h1>
 		<div className="menu">
 			<Burger className="burger-menu" />
-			<header>
+			<header className="header">
 				<nav className="nav">
 					<NavLink className="menuitem" to="/">
 						Home

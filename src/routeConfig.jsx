@@ -3,8 +3,8 @@ import Root from "./routes/Root.jsx"
 import Start from "./routes/start/Start.jsx"
 import Products from "./routes/products/Products.jsx"
 import Admin from "./routes/Adminpage/Admin.jsx"
-import AdminProducts from "./routes/Adminpage/AdminProducts.jsx"
-import AdminUsers from "./routes/Adminpage/AdminUsers.jsx"
+// import AdminProducts from "./routes/Adminpage/AdminProducts.jsx"
+// import AdminUsers from "./routes/Adminpage/AdminUsers.jsx"
 import ErrorPage from "./routes/ErrorPage.jsx"
 import ProductDetails from "./routes/products/ProductDetails.jsx"
 import Cart from "./routes/cart/Cart.jsx"
@@ -45,14 +45,14 @@ const router = createHashRouter([
 				path: "admin",
 				element: <Admin />,
 				children: [
-					{
-						path: "admin/products",
-						element: <AdminProducts />,
-					},
-					{
-						path: "admin/users",
-						element: <AdminUsers />,
-					},
+					// {
+					// 	path: "admin/products",
+					// 	element: <AdminProducts />,
+					// },
+					// {
+					// 	path: "admin/users",
+					// 	element: <AdminUsers />,
+					// },
 				],
 			},
 		],

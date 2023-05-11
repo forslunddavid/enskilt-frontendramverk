@@ -1,22 +1,26 @@
+import { useRecoilState } from "recoil"
+import loggedInUserState from "../state/userState"
 import AdminProducts from "./AdminProducts"
 import AdminUsers from "./AdminUsers"
 import DeleteProducts from "./DeleteProducts"
+import Adminloginmodal from "../adminloginmodal/adminloginmodal.jsx"
 import "./admin.css"
-// import { NavLink } from "react-router-dom"
-import { AuthContext } from "../authContext"
-import { useContext } from "react"
 import LogoutButton from "./LogoutButton"
 
 const Admin = () => {
-	const { loggedIn } = useContext(AuthContext)
+	const [loggedInUser] = useRecoilState(loggedInUserState)
 
-	if (!loggedIn) return null
 	return (
 		<>
-			<AdminProducts />
-			<DeleteProducts />
-			<AdminUsers />
-			<LogoutButton />
+			<Adminloginmodal />
+			{loggedInUser ? (
+				<>
+					<AdminProducts />
+					<DeleteProducts />
+					<AdminUsers />
+					<LogoutButton />
+				</>
+			) : null}
 		</>
 	)
 }

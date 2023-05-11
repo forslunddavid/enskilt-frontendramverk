@@ -76,6 +76,7 @@ ul {
 	display: flex;
 	width: 20em;
 	margin: 0 auto;
+	justify-self: center;
 }
 
 .searchicon > * {

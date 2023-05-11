@@ -52,14 +52,14 @@ const Products = () => {
 	return (
 		<>
 			<div className="searchicon">
-				{searchShown && (
-					<input type="text" value={search} onChange={handleSearch} />
-				)}
 				<img
 					src={searchIcon}
 					alt="Search Logo"
 					onClick={() => setSearchShown(!searchShown)}
 				/>
+				{searchShown && (
+					<input type="text" value={search} onChange={handleSearch} />
+				)}
 			</div>
 			<div>
 				<ul className="">

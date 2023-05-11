@@ -1,12 +1,11 @@
-import { AuthContext } from "../authContext"
-import { useContext } from "react"
+import { useRecoilState } from "recoil"
+import loggedInUserState from "../state/userState"
 
 const LogoutButton = () => {
-	const { setLoggedIn, setUser } = useContext(AuthContext)
+	const [loggedInUser, setLoggedInUser] = useRecoilState(loggedInUserState)
 
 	const handleLogout = () => {
-		setLoggedIn(false)
-		setUser(null)
+		setLoggedInUser(null)
 	}
 
 	return <button onClick={handleLogout}>Logout</button>

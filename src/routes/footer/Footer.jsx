@@ -1,15 +1,7 @@
 import "./footer.css"
 import { NavLink } from "react-router-dom"
-import { useState } from "react"
-// import LoginModal from "./LoginModal"
 
 const Footer = () => {
-	const [showModal, setShowModal] = useState(false)
-
-	const toggleModal = () => {
-		setShowModal(true)
-	}
-
 	return (
 		<div className="footer">
 			<li className="contact">
@@ -22,10 +14,10 @@ const Footer = () => {
 			</li>
 			<li className="footer-nav">
 				<ul>
-					<NavLink onClick={toggleModal}>Admin</NavLink>{" "}
+					<NavLink to="/Admin">Admin</NavLink>{" "}
 				</ul>
 				<ul>
-					<NavLink to="/AboutUs">About Us</NavLink>
+					<NavLink to="/aboutUs">About Us</NavLink>
 				</ul>
 			</li>
 		</div>

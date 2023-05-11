@@ -25,3 +25,8 @@
 a {
 	max-width: 20em;
 }
+
+.product-description {
+	overflow: hidden;
+	max-height: 64px;
+}

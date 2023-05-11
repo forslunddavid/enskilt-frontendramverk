@@ -1,12 +1,10 @@
 .modal {
-	position: absolute;
+	position: relative;
 	background-color: #fdffd0;
 	border-radius: 15px;
 	padding: 1.5rem 3rem;
 	width: 30em;
-	top: 50%;
-	right: 50%;
-	transform: translate(50%, 50%);
+	/* left: 50%; */
 }
 
 .modal h1 {
@@ -40,9 +38,4 @@
 
 .cancel-button {
 	margin-left: 1em;
-}
-
-.product-description {
-	overflow: hidden;
-	max-height: 64px;
 }

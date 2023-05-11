@@ -7,9 +7,11 @@ import "./burger.css"
 const Burger = () => {
 	// State to manage whether or not to show the menu
 	const [showMenu, setShowMenu] = useState(false)
+	const [showCross, setShowCross] = useState(false)
 
 	const toggleMenu = () => {
 		setShowMenu(!showMenu)
+		setShowCross(showCross)
 	}
 
 	return (
@@ -18,7 +20,8 @@ const Burger = () => {
 				className={`burger ${showMenu ? "active" : ""}`}
 				onClick={toggleMenu}
 			>
-				<img src={burger} alt="burger menu" />
+				<img className="burgericon" src={burger} alt="burger menu" />
+				<img className="crossicon" src={cross} alt="close menu" />
 			</div>
 			{showMenu && (
 				<div className={`burger-menu ${showMenu ? "active" : ""}`}>

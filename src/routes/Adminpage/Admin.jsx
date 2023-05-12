@@ -21,7 +21,7 @@ const Admin = () => {
 				<>
 					<AdminProducts />
 					<DeleteProducts />
-					<AdminUsers />
+					{/* <AdminUsers /> */}
 					<LogoutButton />
 				</>
 			) : (

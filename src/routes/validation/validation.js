@@ -11,7 +11,7 @@ function isValidUserName(validUserName) {
 		}
 	}
 	if (validUserName.length < 2) {
-		return [false, "Minumum 2 characters required"]
+		return [false, "Minimum 2 characters required"]
 	}
 	return [true, ""]
 }
@@ -24,7 +24,7 @@ function isValidPassword(userPassword) {
 		}
 	}
 	if (userPassword.length < 5) {
-		return [false, "minumum 5 characters required"]
+		return [false, "minimum 5 characters required"]
 	} else {
 		return [true, ""]
 	}
@@ -64,12 +64,12 @@ function isValidDescription(description) {
 
 function isValidPrice(price) {
 	for (let x = 0; x < price.length; x++) {
-		let characterPrice = price.charCodeAt(x)
-		if (!validNumber.includes(characterPrice)) {
+		let character = price[x]
+		if (!(character >= "0" && character <= "9") && character != ".") {
 			return [false, "Price can only contain numbers and periods"]
 		}
 	}
-	if (price.length < 4) {
+	if (price.length < 3) {
 		return [false, "Price must be at least 4 characters"]
 	}
 	return [true, ""]
@@ -78,9 +78,9 @@ function isValidPrice(price) {
 function isValidImage(addImg) {
 	const whiteSpaceCheck = /\s/
 	if (whiteSpaceCheck.test(addImg)) {
-		return [false, "Godkänner ej mellanrum"]
+		return [false, "No spaces are allowed"]
 	}
-	if (addImg.substring(0, 22) != "https://") {
+	if (!addImg.startsWith("https://")) {
 		return [false, "Must begin with https://"]
 	}
 	return [true, ""]
@@ -106,7 +106,7 @@ function isValidAddPassword(addPassword) {
 		}
 	}
 	if (addPassword.length < 5) {
-		return [false, "minumum 5 characters required"]
+		return [false, "minimum 5 characters required"]
 	} else {
 		return [true, ""]
 	}

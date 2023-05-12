@@ -7,6 +7,7 @@ import productAtom from "../state/productAtom.js"
 import { useRecoilState } from "recoil"
 
 const Products = () => {
+	// Define state variables
 	const [products, setProducts] = useRecoilState(productAtom)
 	const [search, setSearch] = useState("")
 	const [filteredProducts, setFilteredProducts] = useState(products)

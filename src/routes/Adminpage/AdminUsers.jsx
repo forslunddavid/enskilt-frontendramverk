@@ -1,10 +1,12 @@
 import { url, shopId } from "../../data/constants"
 import "./admin.css"
 
+// function to add a new user when the form is submitted
 function addUser(e) {
 	e.preventDefault()
 	// prettier-ignore
 
+	// create an object with the form data
 	const usersFormData = {
 		username: e.target.username.value,
 		password: e.target.password.value,
@@ -13,6 +15,7 @@ function addUser(e) {
 
 	console.log(usersFormData)
 
+	// make a POST request to the server to add the user
 	fetch(url + "?action=add-user", {
 		method: "POST",
 		headers: {

@@ -6,6 +6,7 @@ import { isValidUserName, isValidAddPassword } from "../validation/validation"
 import "./adminloginmodal.css"
 
 const LoginModal = () => {
+	// Declare state variables
 	const [username, setUsername] = useState("")
 	const [password, setPassword] = useState("")
 	const [valid, setValid] = useState(false)
@@ -15,16 +16,19 @@ const LoginModal = () => {
 	const [usernameError, setUsernameError] = useState("")
 	const [passwordError, setPasswordError] = useState("")
 
+	// Validate username
 	useEffect(() => {
 		const [isValid, errorMessage] = isValidUserName(username)
 		setUsernameError(isValid ? "" : errorMessage)
 	}, [username])
 
+	// Validate password
 	useEffect(() => {
 		const [isValid, errorMessage] = isValidAddPassword(password)
 		setPasswordError(isValid ? "" : errorMessage)
 	}, [password])
 
+	// Check login response
 	useEffect(() => {
 		if (data) {
 			console.log(data, "data")
@@ -36,6 +40,7 @@ const LoginModal = () => {
 		}
 	}, [data])
 
+	// Handle login form submission
 	const handleLogin = async (e) => {
 		e.preventDefault()
 		const valid = validateForm()
@@ -57,6 +62,7 @@ const LoginModal = () => {
 		}
 	}
 
+	// Validate login form
 	function validateForm() {
 		let valid = true
 		const errors = {}

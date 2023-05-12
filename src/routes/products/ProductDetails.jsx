@@ -4,16 +4,22 @@ import productAtom from "../state/productAtom.js"
 import cartItems from "../state/cartItems.js"
 
 const ProductDetails = () => {
+	// Get the product atom from Recoil and the cart items from state
 	const [products] = useRecoilState(productAtom)
 	const [cart, setCart] = useRecoilState(cartItems)
+
+	// Get the product ID from the URL params
 	const { id } = useParams()
 
+	// Find the product object based on the ID
 	const product = products.find((product) => product.id === Number(id))
 
+	// Render an error message if the product is not found
 	if (!product) {
 		return <h1>Product not found</h1>
 	}
 
+	// Add the selected product to the cart
 	const AddToCart = (product) => {
 		setCart((cart) => [...cart, product])
 	}

@@ -1,4 +1,5 @@
 import "./start.css"
+import heroImage from "../../assets/Family-Playing-on-Beach.jpg"
 
 const Start = () => (
 	<div>
@@ -9,10 +10,7 @@ const Start = () => (
 				for providing the best toys and accessories to make your summer
 				unforgettable.
 			</p>
-			<img
-				className="hero-image"
-				src="https://www.sodomalaw.com/wp-content/uploads/2018/06/Family-Playing-on-Beach.jpg"
-			></img>
+			<img className="hero-image" src={heroImage}></img>
 		</div>
 	</div>
 )

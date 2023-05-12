@@ -9,6 +9,7 @@ import {
 } from "../validation/validation"
 
 const AdminProducts = () => {
+	// Define state variables for form fields and error messages
 	const [name, setName] = useState("")
 	const [description, setDescription] = useState("")
 	const [price, setPrice] = useState("")
@@ -18,6 +19,7 @@ const AdminProducts = () => {
 	const [priceError, setPriceError] = useState("")
 	const [pictureError, setPictureError] = useState("")
 
+	// Use useEffect to validate the fields whenever they change
 	useEffect(() => {
 		const [isValid, errorMessage] = isValidProductName(name)
 		setNameError(isValid ? "" : errorMessage)
@@ -38,13 +40,16 @@ const AdminProducts = () => {
 		setPictureError(isValid ? "" : errorMessage)
 	}, [picture])
 
+	// Function to handle form submission
 	function addProduct(e) {
 		e.preventDefault()
 
+		// Check if there are any errors in the form fields
 		if (nameError || descriptionError || priceError || pictureError) {
 			return
 		}
 
+		// Create object with product data for API request
 		const productsFormData = {
 			name,
 			price: Number(price),
@@ -54,6 +59,7 @@ const AdminProducts = () => {
 			shopid: shopId,
 		}
 
+		// Make API request to add product
 		fetch(url + "?action=add-product", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },

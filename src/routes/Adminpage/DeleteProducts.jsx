@@ -3,8 +3,10 @@ import { url, shopId } from "../../data/constants"
 import "./admin.css"
 
 const DeleteProducts = () => {
+	// Initialize state for products using useState hook
 	const [products, setProducts] = useState([])
 
+	// Fetch products from API using useEffect hook when component mounts
 	useEffect(() => {
 		async function getProducts() {
 			const response = await fetch(
@@ -16,6 +18,7 @@ const DeleteProducts = () => {
 		getProducts()
 	}, [])
 
+	// Define function to handle delete button click
 	const handleDelete = async (id) => {
 		await fetch(`/api/products/${id}`, { method: "DELETE" })
 		setProducts(products.filter((p) => p.id !== id))

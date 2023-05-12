@@ -4,6 +4,7 @@ import loggedInUserState from "../state/userState"
 import { url, shopId } from "../../data/constants"
 import { isValidUserName, isValidAddPassword } from "../validation/validation"
 import "./adminloginmodal.css"
+
 const LoginModal = () => {
 	const [username, setUsername] = useState("")
 	const [password, setPassword] = useState("")
@@ -27,9 +28,11 @@ const LoginModal = () => {
 	useEffect(() => {
 		if (data) {
 			console.log(data, "data")
-			console.log(loggedInUser, "logged in user1")
-			setLoggedInUser(data.status)
-			console.log(loggedInUser, "logged in user2")
+			if (data.status === "success") {
+				setLoggedInUser(true)
+			} else {
+				setErrors({ general: "Invalid username or password" })
+			}
 		}
 	}, [data])
 
@@ -48,29 +51,24 @@ const LoginModal = () => {
 			if (response.status === 200) {
 				setData(await response.json())
 			} else {
+				setValid(false)
 				setErrors({ general: "Invalid username or password" })
 			}
 		}
 	}
 
 	function validateForm() {
-		if (usernameError || passwordError) {
-			return
-		}
-
 		let valid = true
 		const errors = {}
 		if (!username) {
 			errors.username = "Username required"
 			valid = false
 		}
-		if (!password) {
-			errors.password = "Password requiered"
-			valid = false
-		}
+		setErrors(errors)
 		setValid(valid)
 		return valid
 	}
+
 	return (
 		<>
 			<section className="login-section">

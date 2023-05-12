@@ -1,11 +1,12 @@
 const validCharLetter = "abcdefghijklmnopqrstuvwxyzåäö "
 const validCharLetterNumber = "abcdefghijklmnopqrstuvwxyzåäö1234567890"
 const validCharComma = "abcdefghijklmnopqrstuvwxyzåäö1234567890, ."
-const validNumber = "1234567890."
+// const validNumber = "1234567890."
 
 function isValidUserName(validUserName) {
 	for (let i = 0; i < validUserName.length; i++) {
-		let characterName = validUserName.charAT(i).toLowerCase()
+		let characterCode = validUserName.charCodeAt(i)
+		let characterName = String.fromCharCode(characterCode).toLowerCase()
 		if (!validCharLetter.includes(characterName)) {
 			return [false, "Only letters and spaces are allowed"]
 		}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useRecoilState } from "recoil"
 import loggedInUserState from "../state/userState"
 import { url, shopId } from "../../data/constants"
+import { isValidUserName, isValidAddPassword } from "../validation/validation"
 import "./adminloginmodal.css"
 const LoginModal = () => {
 	const [username, setUsername] = useState("")
@@ -10,6 +11,19 @@ const LoginModal = () => {
 	const [errors, setErrors] = useState({})
 	const [loggedInUser, setLoggedInUser] = useRecoilState(loggedInUserState)
 	const [data, setData] = useState()
+	const [usernameError, setUsernameError] = useState("")
+	const [passwordError, setPasswordError] = useState("")
+
+	useEffect(() => {
+		const [isValid, errorMessage] = isValidUserName(username)
+		setUsernameError(isValid ? "" : errorMessage)
+	}, [username])
+
+	useEffect(() => {
+		const [isValid, errorMessage] = isValidAddPassword(password)
+		setPasswordError(isValid ? "" : errorMessage)
+	}, [password])
+
 	useEffect(() => {
 		if (data) {
 			console.log(data, "data")
@@ -18,6 +32,7 @@ const LoginModal = () => {
 			console.log(loggedInUser, "logged in user2")
 		}
 	}, [data])
+
 	const handleLogin = async (e) => {
 		e.preventDefault()
 		const valid = validateForm()
@@ -30,22 +45,27 @@ const LoginModal = () => {
 					body: JSON.stringify({ username, password }),
 				}
 			)
-			console.log(response.status, "response status")
-			setData(await response.json())
-			console.log(data, "data")
-		} else {
-			setErrors({ general: "Invalid username/password" })
+			if (response.status === 200) {
+				setData(await response.json())
+			} else {
+				setErrors({ general: "Invalid username or password" })
+			}
 		}
 	}
-	const validateForm = () => {
+
+	function validateForm() {
+		if (usernameError || passwordError) {
+			return
+		}
+
 		let valid = true
 		const errors = {}
 		if (!username) {
 			errors.username = "Username required"
 			valid = false
 		}
-		if (!password || password.length < 4) {
-			errors.password = "Password must be at least 4 characters"
+		if (!password) {
+			errors.password = "Password requiered"
 			valid = false
 		}
 		setValid(valid)
@@ -70,6 +90,9 @@ const LoginModal = () => {
 								placeholder="Name"
 								onChange={(e) => setUsername(e.target.value)}
 							/>
+							{usernameError && (
+								<p className="error-message">{usernameError}</p>
+							)}
 						</div>{" "}
 						<div className="login-input-container">
 							{" "}
@@ -81,8 +104,11 @@ const LoginModal = () => {
 								placeholder="Password"
 								onChange={(e) => setPassword(e.target.value)}
 							/>
+							{passwordError && (
+								<p className="error-message">{passwordError}</p>
+							)}
 							<span className="display-error">
-								{errors.username}
+								{errors.password}
 							</span>{" "}
 						</div>
 						<button

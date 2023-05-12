@@ -76,6 +76,7 @@ const AdminProducts = () => {
 				<h1>Add New Products</h1>
 				<div className="add-products-container">
 					<form className="add-products" onSubmit={addProduct}>
+						<label htmlFor="name">Name:</label>
 						<input
 							name="name"
 							type="text"
@@ -86,16 +87,20 @@ const AdminProducts = () => {
 						{nameError && (
 							<p className="error-message">{nameError}</p>
 						)}
+
+						<label htmlFor="description">Description:</label>
 						<input
 							name="description"
 							type="text"
-							placeholder="description"
+							placeholder="Description"
 							value={description}
 							onChange={(e) => setDescription(e.target.value)}
 						/>
 						{descriptionError && (
 							<p className="error-message">{descriptionError}</p>
 						)}
+
+						<label htmlFor="price">Price:</label>
 						<input
 							name="price"
 							type="number"
@@ -106,16 +111,19 @@ const AdminProducts = () => {
 						{priceError && (
 							<p className="error-message">{priceError}</p>
 						)}
+
+						<label htmlFor="picture">Image:</label>
 						<input
 							name="picture"
 							type="text"
-							placeholder="image"
+							placeholder="Image"
 							value={picture}
 							onChange={(e) => setPicture(e.target.value)}
 						/>
 						{pictureError && (
 							<p className="error-message">{pictureError}</p>
 						)}
+
 						<button>Add Product</button>
 					</form>
 				</div>

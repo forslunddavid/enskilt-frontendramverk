@@ -2,6 +2,6 @@ import { atom } from "recoil"
 
 const loggedInUserState = atom({
 	key: "loggedInUser",
-	default: false,
+	default: {},
 })
 export default loggedInUserState

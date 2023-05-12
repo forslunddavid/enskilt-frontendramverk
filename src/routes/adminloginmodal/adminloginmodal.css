@@ -1,10 +1,20 @@
 .modal {
 	position: relative;
 	background-color: #fdffd0;
-	border-radius: 15px;
+	/* border-radius: 15px; */
 	padding: 1.5rem 3rem;
 	width: 30em;
-	/* left: 50%; */
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+.login-section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto 0;
+	width: 100%;
 }
 
 .modal h1 {

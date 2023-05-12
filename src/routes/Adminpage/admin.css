@@ -18,7 +18,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	/* height: 100%; */
+	width: 18em;
+	height: 20em;
 }
 form {
 	margin-bottom: 1em;
@@ -47,7 +48,6 @@ form {
 }
 
 input {
-	margin-bottom: 2em;
 }
 
 .logout-button {

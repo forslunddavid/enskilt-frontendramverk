@@ -15,6 +15,10 @@ ul {
 	padding-bottom: 0.5em;
 }
 
+.footer-links ul {
+	grid-template-columns: auto !important;
+}
+
 @media screen and (min-width: 470px) {
 	.footer {
 		background-color: #fdffd0;

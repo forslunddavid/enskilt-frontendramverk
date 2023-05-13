@@ -18,27 +18,39 @@ const AdminProducts = () => {
 	const [descriptionError, setDescriptionError] = useState("")
 	const [priceError, setPriceError] = useState("")
 	const [pictureError, setPictureError] = useState("")
+	const [nameTouched, setNameTouched] = useState(false)
+	const [descriptionTouched, setDescriptionTouched] = useState(false)
+	const [priceTouched, setPriceTouched] = useState(false)
+	const [pictureTouched, setPictureTouched] = useState(false)
 
 	// Use useEffect to validate the fields whenever they change
 	useEffect(() => {
-		const [isValid, errorMessage] = isValidProductName(name)
-		setNameError(isValid ? "" : errorMessage)
-	}, [name])
+		if (nameTouched) {
+			const [isValid, errorMessage] = isValidProductName(name)
+			setNameError(isValid ? "" : errorMessage)
+		}
+	}, [name, nameTouched])
 
 	useEffect(() => {
-		const [isValid, errorMessage] = isValidDescription(description)
-		setDescriptionError(isValid ? "" : errorMessage)
-	}, [description])
+		if (descriptionTouched) {
+			const [isValid, errorMessage] = isValidDescription(description)
+			setDescriptionError(isValid ? "" : errorMessage)
+		}
+	}, [description, descriptionTouched])
 
 	useEffect(() => {
-		const [isValid, errorMessage] = isValidPrice(price)
-		setPriceError(isValid ? "" : errorMessage)
-	}, [price])
+		if (priceTouched) {
+			const [isValid, errorMessage] = isValidPrice(price)
+			setPriceError(isValid ? "" : errorMessage)
+		}
+	}, [price, priceTouched])
 
 	useEffect(() => {
-		const [isValid, errorMessage] = isValidImage(picture)
-		setPictureError(isValid ? "" : errorMessage)
-	}, [picture])
+		if (pictureTouched) {
+			const [isValid, errorMessage] = isValidImage(picture)
+			setPictureError(isValid ? "" : errorMessage)
+		}
+	}, [picture, pictureTouched])
 
 	// Function to handle form submission
 	function addProduct(e) {
@@ -82,54 +94,66 @@ const AdminProducts = () => {
 				<h1>Add New Products</h1>
 				<div className="add-products-container">
 					<form className="add-products" onSubmit={addProduct}>
-						<label htmlFor="name">Name:</label>
 						<input
 							name="name"
 							type="text"
 							placeholder="Name"
 							value={name}
 							onChange={(e) => setName(e.target.value)}
+							onBlur={() => setNameTouched(true)}
 						/>
-						{nameError && (
-							<p className="error-message">{nameError}</p>
-						)}
-
-						<label htmlFor="description">Description:</label>
+						<p
+							className={`error-message-container ${
+								nameError ? "error-message" : "hidden"
+							}`}
+						>
+							{nameError}
+						</p>
 						<input
 							name="description"
 							type="text"
 							placeholder="Description"
 							value={description}
 							onChange={(e) => setDescription(e.target.value)}
+							onBlur={() => setDescriptionTouched(true)}
 						/>
-						{descriptionError && (
-							<p className="error-message">{descriptionError}</p>
-						)}
-
-						<label htmlFor="price">Price:</label>
+						<p
+							className={`error-message-container ${
+								descriptionError ? "error-message" : "hidden"
+							}`}
+						>
+							{descriptionError}
+						</p>
 						<input
 							name="price"
 							type="number"
 							placeholder="Price"
 							value={price}
 							onChange={(e) => setPrice(e.target.value)}
+							onBlur={() => setPriceTouched(true)}
 						/>
-						{priceError && (
-							<p className="error-message">{priceError}</p>
-						)}
-
-						<label htmlFor="picture">Image:</label>
+						<p
+							className={`error-message-container ${
+								priceError ? "error-message" : "hidden"
+							}`}
+						>
+							{priceError}
+						</p>
 						<input
 							name="picture"
 							type="text"
 							placeholder="Image"
 							value={picture}
 							onChange={(e) => setPicture(e.target.value)}
+							onBlur={() => setPictureTouched(true)}
 						/>
-						{pictureError && (
-							<p className="error-message">{pictureError}</p>
-						)}
-
+						<p
+							className={`error-message-container ${
+								pictureError ? "error-message" : "hidden"
+							}`}
+						>
+							{pictureError}
+						</p>
 						<button>Add Product</button>
 					</form>
 				</div>

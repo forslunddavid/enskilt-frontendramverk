@@ -15,19 +15,24 @@ const LoginModal = () => {
 	const [data, setData] = useState()
 	const [usernameError, setUsernameError] = useState("")
 	const [passwordError, setPasswordError] = useState("")
+	const [usernameTouched, setUsernameTouched] = useState(false)
+	const [passwordTouched, setPasswordTouched] = useState(false)
 
 	// Validate username
 	useEffect(() => {
-		const [isValid, errorMessage] = isValidUserName(username)
-		setUsernameError(isValid ? "" : errorMessage)
-	}, [username])
+		if (usernameTouched) {
+			const [isValid, errorMessage] = isValidUserName(username)
+			setUsernameError(isValid ? "" : errorMessage)
+		}
+	}, [username, usernameTouched])
 
 	// Validate password
 	useEffect(() => {
-		const [isValid, errorMessage] = isValidAddPassword(password)
-		setPasswordError(isValid ? "" : errorMessage)
-	}, [password])
-
+		if (passwordTouched) {
+			const [isValid, errorMessage] = isValidAddPassword(password)
+			setPasswordError(isValid ? "" : errorMessage)
+		}
+	}, [password, passwordTouched])
 	// Check login response
 	useEffect(() => {
 		if (data) {
@@ -93,6 +98,7 @@ const LoginModal = () => {
 								type="text"
 								placeholder="Name"
 								onChange={(e) => setUsername(e.target.value)}
+								onBlur={() => setUsernameTouched(true)}
 							/>
 							{usernameError && (
 								<p className="error-message">{usernameError}</p>
@@ -107,6 +113,7 @@ const LoginModal = () => {
 								type="password"
 								placeholder="Password"
 								onChange={(e) => setPassword(e.target.value)}
+								onBlur={() => setPasswordTouched(true)}
 							/>
 							{passwordError && (
 								<p className="error-message">{passwordError}</p>

@@ -54,3 +54,15 @@ input {
 	display: flex;
 	margin: 0 auto;
 }
+
+.error-message-container {
+	height: 7em;
+}
+
+.error-message {
+	visibility: visible;
+}
+
+.hidden {
+	visibility: hidden;
+}

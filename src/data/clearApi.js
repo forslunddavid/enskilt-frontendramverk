@@ -23,7 +23,7 @@ async function getProductIds() {
 	const response = await fetch(url + "?action=get-products&shopid=" + shopId)
 	const data = await response.json()
 	console.log("Response from API:", data)
-	return data.map((product) => product.id) // [ id1, id2, ... ]
+	return data.map((product) => product.id)
 }
 
 deleteAll()

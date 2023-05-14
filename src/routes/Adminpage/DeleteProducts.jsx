@@ -19,9 +19,31 @@ const DeleteProducts = () => {
 	}, [])
 
 	// Define function to handle delete button click
-	const handleDelete = async (id) => {
-		await fetch(`/api/products/${id}`, { method: "DELETE" })
-		setProducts(products.filter((p) => p.id !== id))
+	const handleDelete = async (productId) => {
+		const deleteUrl =
+			"https://forverkliga.se/JavaScript/api/fe/?action=delete-product/"
+
+		const data = {
+			shopid: shopId,
+			productid: productId,
+			action: "delete-product",
+		}
+
+		const options = {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(data),
+		}
+		console.log(data)
+
+		const response = await fetch(deleteUrl, options)
+		const statusObject = await response.json()
+		if (statusObject.status === "success") {
+			console.log("success")
+			return true
+		}
+		console.log("Delete status failed: ", statusObject)
+		return false
 	}
 
 	return (

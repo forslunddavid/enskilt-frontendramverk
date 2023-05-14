@@ -6,12 +6,12 @@ async function addProduct() {
 
 	const data = {
 		action: "add-product",
-		name: "Beach towel",
-		price: 24.99,
+		name: "Beach umbrella",
+		price: 39.99,
 		description:
-			"Dry off in style with this colorful and absorbent beach towel. With a soft and comfortable texture, it's perfect for lounging on the sand or drying off after a refreshing swim in the ocean.",
+			"Large and sturdy beach umbrella for sun protection and relaxation.",
 		picture:
-			"https://www.thespruce.com/thmb/EbO6FNFnQonomzyYOGrH0t0sINM=/5100x3400/filters:fill(auto,1)/striped-beach-towel-on-sand-with-hat-and-glasses-463236755-5a1f20d5b39d030039f78644.jpg",
+			"https://beachbrella.com/wp-content/uploads/2014/10/Umbrella-Profile-Enhancement.jpg",
 		shopid: shopId,
 	}
 

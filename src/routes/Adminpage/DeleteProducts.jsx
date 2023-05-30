@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
+import { useRecoilState } from "recoil"
+import productAtom from "../state/productAtom"
 import { url, shopId } from "../../data/constants"
 import "./admin.css"
 
 const DeleteProducts = () => {
-	// Initialize state for products using useState hook
-	const [products, setProducts] = useState([])
-
-	// Fetch products from API using useEffect hook when component mounts
+	const [products, setProducts] = useRecoilState(productAtom)
 	useEffect(() => {
 		async function getProducts() {
 			const response = await fetch(
@@ -40,6 +39,7 @@ const DeleteProducts = () => {
 		const statusObject = await response.json()
 		if (statusObject.status === "success") {
 			console.log("success")
+			setProducts(products.filter((product) => product.id !== productId))
 			return true
 		}
 		console.log("Delete status failed: ", statusObject)

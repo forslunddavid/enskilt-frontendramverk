@@ -22,6 +22,7 @@ body {
 	width: 100vw;
 	padding-bottom: 20em;
 	background-color: #fff6bc;
+	background-image: "../assets/backgroundimage.svg";
 	/* overflow-x: hidden; */
 }
 
@@ -35,5 +36,5 @@ body {
 }
 
 .bg-image {
-	background-image: url("./src/assets/backgroundimage.svg");
+	background-image: url("../assets/backgroundimage.svg");
 }

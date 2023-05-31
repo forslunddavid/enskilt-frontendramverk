@@ -21,7 +21,20 @@ const ProductDetails = () => {
 
 	// Add the selected product to the cart
 	const AddToCart = (product) => {
-		setCart((cart) => [...cart, product])
+		let newCart = [...cart]
+		let index = newCart.findIndex((i) => i.id === product.id)
+		if (index > -1) {
+			newCart[index] = {
+				...JSON.parse(JSON.stringify(newCart[index])),
+				quantity: newCart[index].quantity + 1,
+			}
+		} else {
+			newCart.push({
+				...JSON.parse(JSON.stringify(product)),
+				quantity: 1,
+			})
+		}
+		setCart(newCart)
 	}
 
 	return (
@@ -46,7 +59,6 @@ const ProductDetails = () => {
 				<p>{product.price}$</p>
 				<p>{product.description}</p>
 			</li>
-			<div></div>
 		</div>
 	)
 }

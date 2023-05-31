@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useRecoilState } from "recoil"
 import cartItems from "../state/cartItems.js"
 // import { useParams } from "react-router-dom"
@@ -5,22 +6,24 @@ import { useState } from "react"
 import "./cart.css"
 
 const Cart = () => {
-	// const { id } = useParams()
 	const [cart, setCart] = useRecoilState(cartItems)
 	const totalPrice = cart.reduce((a, b) => a + b.price, 0)
 	const [totPrice, setTotPrice] = useState(totalPrice)
 
 	const handleQuantity = (e, item) => {
 		let updatedItem = { ...item }
-		console.log(item, "item")
 		updatedItem.quantity = e.target.value
+
 		let newCart = [...cart]
 		let index = newCart.findIndex((i) => i.id === updatedItem.id)
+
 		if (index > -1) {
-			newCart.splice(index, 1, updatedItem)
-			setCart(newCart)
-		} else console.log(index, "index")
-		console.log(newCart, "newCart")
+			newCart[index] = updatedItem
+		} else {
+			newCart.push(updatedItem)
+		}
+
+		setCart(newCart)
 		let newSum = 0
 		for (let i = 0; i < newCart.length; i++) {
 			let itemSum = 0
@@ -31,8 +34,16 @@ const Cart = () => {
 			}
 			newSum = newSum + itemSum
 		}
-		setTotPrice(newSum)
 	}
+
+	useEffect(() => {
+		let newSum = 0
+		for (let i = 0; i < cart.length; i++) {
+			let itemSum = cart[i].price * cart[i].quantity
+			newSum = newSum + itemSum
+		}
+		setTotPrice(newSum)
+	}, [cart])
 
 	const handleDelete = (item) => {
 		setCart(cart.filter((i) => i !== item))
@@ -50,7 +61,7 @@ const Cart = () => {
 								<input
 									className="item-quantity"
 									type="number"
-									value={item.quantity ? item.quantity : "1"}
+									value={item.quantity}
 									onChange={(e) => handleQuantity(e, item)}
 								/>
 								<button onClick={() => handleDelete(item)}>
@@ -66,10 +77,9 @@ const Cart = () => {
 					<p className="cart-message">
 						Total Price: {totPrice.toFixed(2)}$
 					</p>
-				)}{" "}
+				)}
 			</div>
 		</section>
 	)
 }
-
 export default Cart
